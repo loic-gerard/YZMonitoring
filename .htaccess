@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+RewriteRule (.*).css $0
+RewriteRule (.*).js $0
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-s
+RewriteRule ^(.*)$ index.php?q=$1 [QSA,NC,L]
+
+</IfModule>
