@@ -1,0 +1,115 @@
+/* Interfaces non connectees */
+$notlogged_backColor: #29a7b8;
+$notlogged_fontColor: white;
+
+/* Interfaces globales (droite / gauche) */
+$menu_mainBackColor: #2c383e;
+$menu_secondBackColor: #364249;
+$menu_fontColor: white;
+$menu_tools_fontColor: #d7d9db;
+$menu_dummySelect_border: #afb3b6;
+$menu_dummySelect_selectedValue_fontColor: white;
+$menu_dummySelect_backColor_hover : #617682;
+$menu_dummySelect_item_textColor: white;
+$menu_dummySelect_item_backColor_hover: #29a7b8;
+$menu_dummySelect_item_backColor_selected: #29a7b8;
+$menu_title_textColor: #6f767a;
+$menu_link_textColor: white;
+$menu_link_backColor: none;
+$menu_link_backColor_hover: #29a7b8;
+$menu_contact_nom_textColor: white;
+$menu_contact_info_textColor: #acafb0;
+
+/* Boutons d'action */
+$classic_backColor: #29a7b8;
+$classic_textColor: white;
+$classic_backColor_hover: #38c2d5;
+$valid_backColor: #89d17d;
+$valid_textColor: white;
+$valid_backColor_hover: #5bb94b;
+$cancel_backColor: #f57c69;
+$cancel_textColor: white;
+$cancel_backColor_hover: #f94444;
+$orange_backColor: #f5ab69;
+$orange_textColor: white;
+$orange_backColor_hover: #ffcb9c;
+$off_backColor: #a8a8aa;
+$off_textColor: white;
+$off_backColor_hover: #a8a8aa;
+
+/*Menu TOP*/
+$menuTop_backColor: #29a7b8;
+$menuTop_textColor: white;
+$menuTop_backColor_hover: #38c2d5;
+$menuTop_backColor_selected: #89d17d;
+
+/* Elements globaux */
+$body_backColor: #e7e8ea;
+$content_margin: 75px;
+$link_color: #29a7b8;
+$link_color_hover: #38c2d5;
+$overlight_color: #29a7b8;
+$overlight_color_hover: #38c2d5;
+$tools_backColor: white;
+$h1_textColor: #29a7b8;
+$normal_textColor: #666666;
+$light_textColor: #bcbcbc;
+$bold_textColor: #29a7b8;
+$selectedColor: #fffee7;
+$contrast_backColor: #2c383e;
+
+/* Panels */
+$panel_backColor: white;
+$panel_borderColor: #d0d0d2;
+$panel_title_textColor: #ababad;
+
+/* Tableaux */
+$table_th_backColor: #29a7b8;
+$table_th_textColor: white;
+$table_tr_backColor: white;
+$table_tr_backColorAlternate: #f6f6f6;
+$table_td_textColor: #666666;
+$table_lines: #a1d9e1;
+
+/* Formulaires */
+$label_textColor: #29a7b8;
+$input_textColor: #666666;
+$input_borderColor: white;
+$input_borderColor_hover: #29a7b8;
+$input_borderColor_focus: #29a7b8;
+
+/*Alertes*/
+$alert_standard_backColor: #a1d9e1;
+$alert_standard_textColor: #666666;
+$alert_error_backColor: #f57c69;
+$alert_error_textColor: #FFFFFF;
+
+
+/* Transitions */
+
+%transition_all{
+    -webkit-transition: all .1s ease-in;
+    -moz-transition: all .1s ease-in;
+    -o-transition: all .1s ease-in;
+    transition: all .1s ease-in;
+}
+
+.overlight{
+    -webkit-animation: overlight_kf 1s infinite; /* Chrome, Safari, Opera */ 
+    animation: overlight_kf 1s infinite;
+    animation-iteration-count:1; -webkit-animation-iteration-count:1;
+}
+
+/* Chrome, Safari, Opera */ 
+@-webkit-keyframes overlight_kf {
+    0%   {background-color:white;}
+    50%  {background-color:#80dce8;}
+    100%  {background-color:white;}
+}
+
+/* Standard syntax */
+@keyframes overlight_kf {
+    0%   {background-color:white;}
+    50%  {background-color:#80dce8;}
+    100%  {background-color:white;}
+}

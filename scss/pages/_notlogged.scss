@@ -1,0 +1,61 @@
+.notlogged{
+    width:100%;
+    height:100%;
+    position:fixed;
+    background-color:$notlogged_backColor;
+    
+    .window{
+        width:600px;
+        height:400px;
+        position:fixed;
+        top:50%;
+        left:50%;
+        margin-top:-200px;
+        margin-left:-300px;
+        
+        input{
+            width:100%;
+        }
+        
+        .info{
+            margin-bottom: 20px;
+            padding-top:15px;
+        }
+        
+        .logo{
+            .img{
+                width:85px;
+                float:left;
+            }
+
+            .titre{
+                margin-top:15px;
+                font-size: 20px;
+                color:$notlogged_fontColor;
+
+            }
+            
+            height:90px;
+            width:250px;
+            float:left;
+        }
+        
+        .logincontent{
+            margin-left:250px;
+            border-left:1px solid $notlogged_fontColor;;
+            padding-left:20px;
+            
+            color:$notlogged_fontColor;
+            
+            label{
+                color: white;
+            }
+            
+            input[type=submit]:hover{
+                background-color: $valid_backColor_hover;
+            }
+        }
+    }
+    
+    
+}

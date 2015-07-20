@@ -1,0 +1,43 @@
+.info{
+    margin-bottom:10px;
+}
+
+.alert{
+    background-color: $alert_standard_backColor;
+    color: $alert_standard_textColor;
+    padding: 20px;
+    padding-bottom:25px;
+    margin-bottom:20px;
+    
+    .alertPicto{
+        float:left;
+        width:70px;
+    }
+    
+    .alertPicto::before{
+        font-size: 50px !important;
+    }
+    
+    .alertContent{
+        padding-left:70px;
+    }
+    
+    .alertTitle{
+        font-size:20px;
+        font-weight:bold;
+    }
+    
+    .alertTexte{
+        margin-top:5px;
+    }
+    
+    &.erreur{
+        background-color: $alert_error_backColor;
+        color: $alert_error_textColor;
+        
+        a{
+            color:white;
+            text-decoration:underline;
+        }
+    }
+}

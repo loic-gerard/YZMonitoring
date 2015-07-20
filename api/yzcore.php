@@ -15,8 +15,8 @@ class YZCore {
     public static function autoload($className) {
         $tab = explode('\\', $className);
         $path = strtolower(implode(DIRECTORY_SEPARATOR, $tab)) . '.php';
-        $path = str_replace('yz/', 'api/', $path);
-        $path = str_replace('api/yzcore.php', '', __FILE__) . $path;
+        $path = str_replace('yz'.DIRECTORY_SEPARATOR, 'api'.DIRECTORY_SEPARATOR, $path);
+        $path = str_replace('api'.DIRECTORY_SEPARATOR.'yzcore.php', '', __FILE__) . $path;
 
         if (is_file($path)) {
             require($path);

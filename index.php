@@ -2,6 +2,8 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
+date_default_timezone_set('Europe/Paris');
+
 //Chargement des classes de bases Jin
 include 'framework-jin/jin/launcher.php';
 use jin\output\webapp\WebApp;
@@ -29,7 +31,7 @@ foreach($custom AS $k => $v){
 }
 
 //Connexion BDD
-$r = DbConnexion::connectWithSqLite3('../../Java/YZDatabase/database.s3db');
+$r = DbConnexion::connectWithSqLite3(DB_PATH);
 
 //Initialisation de l'applicatif
 WebApp::init('app/');

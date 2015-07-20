@@ -1,0 +1,113 @@
+#fichiers{
+
+    .fichierIcone{
+        float:left;
+        width: 70px;
+    }
+
+    .fichierLeft{
+        float:left;
+        width:50%;
+    }
+
+    .fichierNom{
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .fichierRevision{
+        float: left;
+
+        .showAll{
+            margin-top:5px;
+        }
+    }
+
+    .fichierInfo{
+        margin-top: 5px;
+        font-style: italic;
+
+    }
+
+    .fichierAction{
+        float:right;
+        margin-top:10px;
+    }
+
+    .revisions{
+        clear:both;
+        padding-top:10px;
+
+        .revision{
+            padding-top:10px;
+            padding-bottom:10px;
+            clear:both;
+            border-top: 1px solid $table_lines;
+
+            .revisionIcone{
+                width:35px;
+                float:left;
+                margin-left:70px;
+
+                img{
+                    width: 75%;
+                }
+            }
+
+            .revisionLeft{
+                float:left;
+                width:50%;
+            }
+
+            .revisionNom{
+                font-size:14px;
+                font-weight: bold;
+                margin-bottom:3px;
+            }
+
+            .revisionRevision{
+                float:left;
+            }
+
+            .revisionAction{
+                float:right;
+                margin-top:10px;
+            }
+        }
+
+
+    }
+}
+
+#maquettes{
+    .item{
+        float:left;
+        padding-bottom:10px;
+        margin-bottom:20px;
+        width:50%;
+        cursor:pointer;
+        padding-top:10px;
+        
+        .contenu{
+            width: 450px;
+            margin: auto;
+        }
+        
+        .libelle{
+            font-size: 14px;
+            color: $h1_textColor;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding-bottom:10px;
+        }
+        
+        &:hover{
+            background-color: $selectedColor;
+        }
+    }
+    
+    .maquetteArchivee{
+        opacity: 0.5;
+    }
+    
+}

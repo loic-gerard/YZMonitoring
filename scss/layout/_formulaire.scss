@@ -1,0 +1,47 @@
+input:hover,
+textarea:hover,
+input:focus,
+textarea:focus{
+    @extend %transition_all;
+    border-color: $overlight_color !important;
+    background-color: $selectedColor !important;
+}
+
+textarea{
+    width:100%;
+    min-height:120px;
+    color: $input_textColor;
+}
+
+textarea,
+input{
+    @extend %transition_all;
+    border: 1px solid $input_borderColor;
+}
+
+.form{
+    .item{
+        margin-bottom:10px;
+        
+        label{
+            display: block;
+            margin-bottom: 2px;
+            font-size: 14px;
+            font-family: 'ralewaybold';
+            color: $label_textColor;
+        }
+    }
+    
+    .error{
+        background-color: #ffebeb;
+        font-size: 13px;
+        margin-top: 4px;
+    }
+}
+
+input[type=text],
+input[type=password]{
+    border:1px solid #d0d0d2;
+    font-family: 'ralewaymedium';
+    color:#364249;
+}

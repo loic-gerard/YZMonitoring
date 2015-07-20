@@ -1,0 +1,13 @@
+
+.panelLeft{
+    width: 50%;
+    float: left;
+    padding-right: 20px;
+}
+
+.panelRight{
+    width: 50%;
+    float: left;
+    border-left: 1px solid $panel_borderColor;
+    padding-left:20px;
+}
