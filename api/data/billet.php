@@ -76,9 +76,10 @@ class Billet{
     }
     
     public function addScan($data){
+        $now = new \DateTime();
         $q = new Query();
-        $q->setRequest('INSERT INTO tb_scan (tt_type, fk_billet) VALUES ('.$q->argument($data, Query::$SQL_STRING).', '.$q->argument($this->getPk(), Query::$SQL_NUMERIC).')');
-        $q->execute();
+        $q->setRequest('INSERT INTO tb_scan (tt_type, fk_billet, dt_datetime) VALUES ('.$q->argument($data, Query::$SQL_STRING).', '.$q->argument($this->getPk(), Query::$SQL_NUMERIC).',\''.$now->format('d/m/Y H:i:s').'\')');
+		$q->execute();
     }
     
     public function setValide(){
@@ -100,19 +101,21 @@ class Billet{
         $q->setRequest('UPDATE tb_billet SET in_surcharge=1 WHERE pk_billet='.$q->argument($this->getPk(), Query::$SQL_NUMERIC));
         $q->execute();
         $this->addScan('Opération manuelle : scan');
-        
+        $now = new \DateTime();
         $q = new Query();
         $dt = new \DateTime();
         $q->setRequest('INSERT INTO tb_scan '
                 . '(tt_type, '
                 . 'fk_billet, '
                 . 'in_day, '
-                . 'in_hour) '
+                . 'in_hour, '
+				. 'dt_datetime) '
                 . 'VALUES '
                 . '('.$q->argument('OK', Query::$SQL_STRING).','
                 . ' '.$q->argument($this->getPk(), Query::$SQL_NUMERIC).','
                 . ' '.$q->argument($dt->format('d'), Query::$SQL_NUMERIC).', '
-                . ' '.$q->argument($dt->format('h'), Query::$SQL_NUMERIC).')');
+                . ' '.$q->argument($dt->format('h'), Query::$SQL_NUMERIC).','
+				. '\''.$now->format('d/m/Y H:i:s').'\')');
         $q->execute();
     }
     

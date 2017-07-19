@@ -53,7 +53,7 @@ $t->setHeaders(array('Date','Détails',''));
 $t->setDataSource($ds);
 
 $tm = new TableModel();
-$tm->setColComponent('dt_datetime', 'jin\output\components\ui\DateTime');
+$tm->setColComponent('dt_datetime', 'yz\ui\components\tablecell\DateTime');
 $tm->setColComponent('annuler', 'yz\ui\components\tablecell\Button');
 $t->setTableModel($tm);
 
@@ -108,7 +108,11 @@ if($billet->isValide()){
             <div class="value"><?php if($billet-> isSurcharged()){ echo '<div class="valid led">OUI</div>'; }else{ echo '<div class="cancel led">NON</div>'; } ?></div>
             <div class="clear"></div>
         </div>
-        
+        <div class="keyValueLine">
+            <div class="key">Bénéficiaire :</div>
+            <div class="value"><?php if($billet->get('tt_beneficiaire') === 0){ echo 'N/A'; }else{ echo StringTools::urlDecode($billet->get('tt_beneficiaire')); } ?></div>
+            <div class="clear"></div>
+        </div>
        
     </div>
 </div>
@@ -146,6 +150,16 @@ if($billet->isValide()){
             <div class="value"><?= $billet->get('tt_codebarre'); ?></div>
             <div class="clear"></div>
         </div>
+		<div class="keyValueLine">
+            <div class="key">#SCB :</div>
+            <div class="value"><?= $billet->get('tt_speedcodebarre'); ?></div>
+            <div class="clear"></div>
+        </div>
+		<div class="keyValueLine">
+            <div class="key">Date :</div>
+            <div class="value"><?= $billet->get('dt_commande'); ?></div>
+            <div class="clear"></div>
+        </div>
     </div>
 </div>
 
@@ -154,19 +168,16 @@ if($billet->isValide()){
     <div class="panelContent" id="billets">
         <div class="keyValueLine">
             <div class="key">Client :</div>
-            <div class="value"><?= StringTools::urlDecode($billet->get('tt_client')); ?></div>
+			<div class="value"><?php if($billet->get('tt_client') === 0){ echo 'N/A'; }else{ echo StringTools::urlDecode($billet->get('tt_client')); } ?></div>
             <div class="clear"></div>
         </div>
+		
         <div class="keyValueLine">
             <div class="key">Numéro de commande :</div>
-            <div class="value"><?= $billet->get('in_numero_commande'); ?></div>
+			<div class="value"><?php if($billet->get('in_numero_commande') != 'NULL'){ echo $billet->get('in_numero_commande'); }else{ echo 'N/A'; } ?></div>
             <div class="clear"></div>
         </div>
-        <div class="keyValueLine">
-            <div class="key">Date de commande :</div>
-            <div class="value"><?= $billet->get('dt_commande'); ?></div>
-            <div class="clear"></div>
-        </div>
+        
     </div>
 </div>
 

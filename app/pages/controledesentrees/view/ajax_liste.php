@@ -30,18 +30,19 @@ if($_POST['tt_type'] != '' && $_POST['tt_type'] != '-1'){
     $q->addToRequest('AND tt_type ='.$q->argument($_POST['tt_type'], Query::$SQL_STRING));
 }
 if($_POST['tt_codebarre'] != ''){
-    $q->addToRequest('AND tt_codebarre LIKE \'%'.$_POST['tt_codebarre'].'%\'');
+    $q->addToRequest('AND (tt_codebarre LIKE \'%'.$_POST['tt_codebarre'].'%\' OR tt_speedcodebarre LIKE \'%'.$_POST['tt_codebarre'].'%\') ');
 }
 if($_POST['in_numerocommande'] != ''){
     $q->addToRequest('AND in_numero_commande LIKE \'%'.$_POST['in_numerocommande'].'%\'');
 }
 if($_POST['tt_client'] != ''){
-    $q->addToRequest('AND tt_client LIKE \'%'.$_POST['tt_client'].'%\'');
+    $q->addToRequest('AND (tt_client LIKE \'%'.$_POST['tt_client'].'%\' OR tt_beneficiaire LIKE \'%'.$_POST['tt_client'].'%\') ');
 }
 if($_POST['dt_commande'] != '' && $_POST['dt_commande'] != 'jj/mm/aaaa'){
     $q->addToRequest('AND dt_commande='.$q->argument($_POST['dt_commande'], Query::$SQL_DATETIME));
 }
 $q->addToRequest('LIMIT 30');
+
 $q->execute();
 $qr = $q->getQueryResults();
 
@@ -63,9 +64,10 @@ $qr->removeColumn('dt_commande');
 $qr->removeColumn('tt_dates_validite');
 $qr->removeColumn('in_surcharge');
 $qr->removeColumn('tt_commentaires');
+$qr->removeColumn('tt_etatbillet');
 
 $t = new Table('billets');
-$t->setHeaders(array('#id','Numéro','Type','Désignation','Code barre','N° commande','Client','Valide','Source',''));
+$t->setHeaders(array('#id','Numéro','Type','Désignation','Code barre','N° commande','Client','Valide','Source','Bénéficiaire', '#SCB', ''));
 $t->setDataSource($qr);
 
 $tm = new TableModel();
